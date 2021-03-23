@@ -2,10 +2,7 @@
 
 public class PlayerCrosshair : MonoBehaviour {
 
-    public bool firstPerson;
-    public GameObject mira;
-    public GameObject crosshairPoint;
-    public float shootForce;
+    public LineRenderer mira;
     private Ray ray;
     RaycastHit raycastHit;
 
@@ -13,16 +10,17 @@ public class PlayerCrosshair : MonoBehaviour {
         ray = new Ray(mira.transform.position, mira.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit raycastHit)) {
             this.raycastHit = raycastHit;
-            crosshairPoint.transform.position = raycastHit.point;
+            //mira.Se
+            //crosshairPoint.transform.position = raycastHit.point;
         }
         if (Input.GetMouseButtonDown(0)) {
-            atira();
+       //     atira();
         }
     }
 
-    private void atira() {
+   /* private void atira() {
         if (this.raycastHit.rigidbody) {
             this.raycastHit.rigidbody.AddForceAtPosition(ray.direction * shootForce, this.raycastHit.point);
         }
-    }
+    }*/
 }
