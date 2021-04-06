@@ -519,6 +519,8 @@ GameObject:
   - component: {fileID: 5749296039505734556}
   - component: {fileID: 5749296039505734546}
   - component: {fileID: 5749296039505734547}
+  - component: {fileID: -3083041455073164829}
+  - component: {fileID: 9174399453355444386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -593,3 +595,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   mouseSensitivy: 5
+--- !u!114 &-3083041455073164829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749296039505734559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &9174399453355444386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5749296039505734559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8845b29b12e384babbfd6e2aa0d034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  componetsToDisable:
+  - {fileID: 5749296039505734547}
+  - {fileID: 5749296039505734546}
+  - {fileID: 5749296037810064789}
+  - {fileID: 5749296037810064790}
