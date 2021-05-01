@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{62D76761-142E-6C6C-BCB7-830D49CB6B97}</ProjectGuid>
+    <ProjectGuid>{AF33D1BA-F643-1A3C-D1E5-33C6B3CF9CE2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,17 +56,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Player\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMoviment.cs" />
-    <Compile Include="Assets\Scripts\Test\PlayerSetup.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerCrosshair.cs" />
-    <Compile Include="Assets\Scripts\Player\Gun.cs" />
-    <Compile Include="Assets\Scripts\Player\Target.cs" />
-    <Compile Include="Assets\Scripts\Test\PlayerMotor.cs" />
-    <Compile Include="Assets\Scripts\Player\GameTags.cs" />
-    <Compile Include="Assets\Scripts\Test\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Test\PlayerWeapon.cs" />
-    <Compile Include="Assets\Scripts\Test\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\OldScritps\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\OldScritps\PlayerMoviment.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerSetup.cs" />
+    <Compile Include="Assets\Scripts\OldScritps\PlayerCrosshair.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\OldScritps\Gun.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerWeapon.cs" />
+    <Compile Include="Assets\Scripts\OldScritps\Target.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\OldScritps\GameTags.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Player.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsThirdParty\Prototyping\Shaders\WorldCoordDiffuse.shader" />

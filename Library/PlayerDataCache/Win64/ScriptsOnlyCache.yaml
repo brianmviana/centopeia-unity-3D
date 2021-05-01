@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - GameManager
+    - Player
     - PlayerController
     - PlayerMotor
     - PlayerSetup
@@ -151,55 +153,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 3758}
+      Script: {instanceID: 3710}
     - Class: 114
-      Script: {instanceID: 3912}
+      Script: {instanceID: 3760}
     - Class: 114
-      Script: {instanceID: 3932}
+      Script: {instanceID: 3914}
     - Class: 114
-      Script: {instanceID: 4020}
+      Script: {instanceID: 3934}
     - Class: 114
-      Script: {instanceID: 4026}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 4098}
+      Script: {instanceID: 4028}
     - Class: 114
-      Script: {instanceID: 4120}
+      Script: {instanceID: 4100}
     - Class: 114
-      Script: {instanceID: 4142}
+      Script: {instanceID: 4122}
     - Class: 114
-      Script: {instanceID: 4176}
+      Script: {instanceID: 4144}
     - Class: 114
-      Script: {instanceID: 4268}
+      Script: {instanceID: 4178}
     - Class: 114
-      Script: {instanceID: 4272}
+      Script: {instanceID: 4270}
     - Class: 114
-      Script: {instanceID: 4336}
+      Script: {instanceID: 4274}
     - Class: 114
-      Script: {instanceID: 4442}
+      Script: {instanceID: 4338}
     - Class: 114
-      Script: {instanceID: 4614}
+      Script: {instanceID: 4444}
     - Class: 114
-      Script: {instanceID: 4716}
+      Script: {instanceID: 4616}
     - Class: 114
-      Script: {instanceID: 5050}
+      Script: {instanceID: 4720}
     - Class: 114
-      Script: {instanceID: 5070}
+      Script: {instanceID: 5054}
     - Class: 114
-      Script: {instanceID: 5220}
+      Script: {instanceID: 5074}
     - Class: 114
-      Script: {instanceID: 5274}
+      Script: {instanceID: 5224}
     - Class: 114
-      Script: {instanceID: 5530}
+      Script: {instanceID: 5278}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5534}
     - Class: 114
-      Script: {instanceID: 5706}
+      Script: {instanceID: 5662}
     - Class: 114
-      Script: {instanceID: 6080}
+      Script: {instanceID: 5710}
     - Class: 114
-      Script: {instanceID: 6280}
+      Script: {instanceID: 6084}
     - Class: 114
-      Script: {instanceID: 18366}
+      Script: {instanceID: 6284}
+    - Class: 114
+      Script: {instanceID: 18536}
+    - Class: 114
+      Script: {instanceID: 18542}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -653,6 +659,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerBitField
+  - hash:
+      serializedVersion: 2
+      Hash: 8cc8998fc570a76e13419952e9119839
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerShoot
   - hash:
       serializedVersion: 2
       Hash: 2cfa0393b5123bd14aa7b550fd8912e4
@@ -1183,10 +1195,16 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 6f71e653f97f781051c20f7c6c5e47ea
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PlayerShoot
+    className: GameManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6f0d88143c301abdc3147ebdcf740f7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player
   platform: 19
   scenePathNames:
   - Assets/Scenes/TestScene.unity
