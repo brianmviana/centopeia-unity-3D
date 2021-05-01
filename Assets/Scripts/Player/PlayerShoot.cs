@@ -23,8 +23,6 @@ public class PlayerShoot: NetworkBehaviour {
     }
 
     private void Update() {
-
-
         if (Input.GetButton("Fire1")) {
             Shoot();
         }
@@ -47,7 +45,7 @@ public class PlayerShoot: NetworkBehaviour {
         Debug.Log(_playerID + " has been shot");
 
         Player _player = GameManager.GetPlayer(_playerID);
-        _player.TakeDamage(_damage);
+        _player.RpcTakeDamage(_damage);
 
 //        Destroy(GameObject.Find(_ID));
     }
