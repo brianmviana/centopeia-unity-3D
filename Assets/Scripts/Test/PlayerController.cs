@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     private float speed = 5f;
 
     [SerializeField]
-    private float mouseSensitivy = 5f;
+    private float mouseSensitivy = 10f;
 
     [SerializeField]
     private float thrusterForce = 1000f;
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 
         //Calculate rotation as a 3D vector
         float _rotationX = Input.GetAxisRaw("Mouse Y");
-        float _cameraRotationX =_rotationX * mouseSensitivy;
+        float _cameraRotationX = _rotationX * mouseSensitivy;
 
         //Apply rotation
         motor.RotationCamera(_cameraRotationX);

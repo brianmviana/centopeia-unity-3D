@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\Test\PlayerMotor.cs" />
     <Compile Include="Assets\Scripts\Player\GameTags.cs" />
     <Compile Include="Assets\Scripts\Test\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Test\PlayerWeapon.cs" />
+    <Compile Include="Assets\Scripts\Test\PlayerShoot.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsThirdParty\Prototyping\Shaders\WorldCoordDiffuse.shader" />

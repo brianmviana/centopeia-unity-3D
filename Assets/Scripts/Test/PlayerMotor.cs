@@ -22,12 +22,6 @@ public class PlayerMotor : MonoBehaviour {
         rb = GetComponent<Rigidbody>();    
     }
 
-    private void FixedUpdate() {
-        PerformMovement();
-        PerformRotation();
-    }
-
-
     public void Move(Vector3 _velocity) {
         velocity = _velocity;
     }
@@ -44,6 +38,11 @@ public class PlayerMotor : MonoBehaviour {
     public void ApplyThruster(Vector3 _thrusterForce) {
         thrusterForce = _thrusterForce;
 
+    }
+
+    private void FixedUpdate() {
+        PerformMovement();
+        PerformRotation();
     }
 
     private void PerformMovement() {
