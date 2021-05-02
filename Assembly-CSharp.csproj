@@ -96,6 +96,7 @@
     <Compile Include="Assets\Utility\AutoMoveAndRotate.cs" />
     <Compile Include="Assets\Utility\FOVKick.cs" />
     <Compile Include="Assets\Scripts\OldScritps\Target.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMotor.cs" />
     <Compile Include="Assets\AssetsThirdParty\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
     <Compile Include="Assets\AssetsThirdParty\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
@@ -108,7 +109,8 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Utility\FPSCounter.cs" />
     <Compile Include="Assets\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\Scripts\Player\WeaponManager.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponGraphics.cs" />
+    <Compile Include="Assets\Scripts\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsThirdParty\Prototyping\Shaders\WorldCoordDiffuse.shader" />

@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - PlayerSetup
     - PlayerShoot
     - UnityStandardAssets.Effects.AfterburnerPhysicsForce
+    - WeaponGraphics
     - WeaponManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -186,47 +187,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4260}
     - Class: 114
-      Script: {instanceID: 4336}
+      Script: {instanceID: 4338}
     - Class: 114
-      Script: {instanceID: 4358}
+      Script: {instanceID: 4360}
     - Class: 114
-      Script: {instanceID: 4382}
+      Script: {instanceID: 4384}
     - Class: 114
-      Script: {instanceID: 4416}
+      Script: {instanceID: 4418}
     - Class: 114
-      Script: {instanceID: 4514}
+      Script: {instanceID: 4516}
     - Class: 114
-      Script: {instanceID: 4520}
+      Script: {instanceID: 4522}
     - Class: 114
-      Script: {instanceID: 4584}
+      Script: {instanceID: 4586}
     - Class: 114
-      Script: {instanceID: 4692}
+      Script: {instanceID: 4694}
     - Class: 114
-      Script: {instanceID: 4868}
+      Script: {instanceID: 4870}
     - Class: 114
-      Script: {instanceID: 4974}
+      Script: {instanceID: 4976}
     - Class: 114
-      Script: {instanceID: 5316}
+      Script: {instanceID: 5318}
     - Class: 114
-      Script: {instanceID: 5336}
+      Script: {instanceID: 5338}
     - Class: 114
-      Script: {instanceID: 5486}
+      Script: {instanceID: 5454}
     - Class: 114
-      Script: {instanceID: 5544}
+      Script: {instanceID: 5490}
     - Class: 114
-      Script: {instanceID: 5802}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5932}
+      Script: {instanceID: 5716}
     - Class: 114
-      Script: {instanceID: 5982}
+      Script: {instanceID: 5808}
     - Class: 114
-      Script: {instanceID: 6376}
+      Script: {instanceID: 5938}
     - Class: 114
-      Script: {instanceID: 6580}
+      Script: {instanceID: 5988}
     - Class: 114
-      Script: {instanceID: 6802}
+      Script: {instanceID: 6382}
     - Class: 114
-      Script: {instanceID: 21472}
+      Script: {instanceID: 6586}
+    - Class: 114
+      Script: {instanceID: 6808}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1124,6 +1127,12 @@ ScriptsOnlyBuild:
     className: UniversalAdditionalLightData
   - hash:
       serializedVersion: 2
+      Hash: fbd5fa7806257e09a1945ad1c89c8303
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponGraphics
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1218,6 +1227,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Settings
+  - hash:
+      serializedVersion: 2
+      Hash: ea84e55a1127d581c466f083e1ba4ad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponManager
   - hash:
       serializedVersion: 2
       Hash: 1db0a631a8c6c4c547c4838f562eead3
@@ -1410,12 +1425,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.Utility
     className: SimpleActivatorMenu
-  - hash:
-      serializedVersion: 2
-      Hash: ea84e55a1127d581c466f083e1ba4ad4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WeaponManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/TestScene.unity
