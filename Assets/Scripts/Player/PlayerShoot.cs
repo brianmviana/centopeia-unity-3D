@@ -1,22 +1,18 @@
 using UnityEngine;
 using UnityEngine.Networking ;
 
+
+[RequireComponent(typeof(WeaponManager))]
 public class PlayerShoot: NetworkBehaviour {
 
     private const string PLAYER_TAG = "Player";
 
     [SerializeField]
-    private PlayerWeapon weapon;
-
-    [SerializeField]
-    private GameObject weaponGraphics;
-
-    [SerializeField]
     private Camera cam;
 
-    [SerializeField]
-    private string weaponLayerName = "Weapon";
+    private PlayerWeapon curretnWeapon;
 
+    private WeaponManager weaponManager;
 
     [SerializeField]
     private LayerMask mask;
@@ -28,12 +24,26 @@ public class PlayerShoot: NetworkBehaviour {
             this.enabled = false;
         }
 
-        weaponGraphics.layer = LayerMask.NameToLayer(weaponLayerName);
+        weaponManager = GetComponent<WeaponManager>();
+
     }
 
     private void Update() {
-        if (Input.GetButton("Fire1")) {
-            Shoot();
+        curretnWeapon = weaponManager.GetCurretnWeapon();
+
+
+        if (curretnWeapon.fireRate <= 0f) {
+            if (Input.GetButtonDown("Fire1")) {
+                Shoot();
+            }
+        }
+        else {
+            if (Input.GetButtonDown("Fire1")) {
+                InvokeRepeating("Shoot", 0f, 1f / curretnWeapon.fireRate);
+            }
+            else if (Input.GetButtonUp("Fire1")) {
+                CancelInvoke("Shoot");
+            }
         }
     }
 
@@ -41,9 +51,11 @@ public class PlayerShoot: NetworkBehaviour {
     void Shoot() {
         RaycastHit _hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, weapon.range, mask)) {
+        Debug.Log("Shoot");
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, curretnWeapon.range, mask)) {
             if (_hit.collider.tag == PLAYER_TAG) {
-                CmdPlayerShot(_hit.collider.name, weapon.damage);
+                CmdPlayerShot(_hit.collider.name, curretnWeapon.damage);
             }
         }
 

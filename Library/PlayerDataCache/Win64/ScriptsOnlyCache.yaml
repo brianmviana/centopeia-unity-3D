@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - PlayerSetup
     - PlayerShoot
     - UnityStandardAssets.Effects.AfterburnerPhysicsForce
+    - WeaponManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -36,7 +37,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Editor.dll:
-    - UnityEditor.Rendering.Universal.AssetVersion
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.ForwardRendererData
@@ -225,6 +225,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6580}
     - Class: 114
       Script: {instanceID: 6802}
+    - Class: 114
+      Script: {instanceID: 21472}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -774,7 +776,7 @@ ScriptsOnlyBuild:
     className: SmokeParticles
   - hash:
       serializedVersion: 2
-      Hash: 89c71eb2f5c2b163df56d8f0ceffa8bd
+      Hash: a59eaa7036f289480ebc73e41a1b908a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShoot
@@ -1408,6 +1410,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.Utility
     className: SimpleActivatorMenu
+  - hash:
+      serializedVersion: 2
+      Hash: ea84e55a1127d581c466f083e1ba4ad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/TestScene.unity
