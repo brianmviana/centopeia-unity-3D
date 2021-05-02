@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float thrusterForce = 1000f;
 
-    [Header("Spring sttings:")]
+    [Header("Spring sttings: ")]
     [SerializeField]
     private JointDriveMode jointMode = JointDriveMode.Position;
     [SerializeField]
@@ -23,26 +23,33 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float jointMaxForce = 40f;
 
+    // Component caching
     private PlayerMotor motor;
     private ConfigurableJoint joint;
-
+    private Animator animator;
+    
     void Start() {
         motor = GetComponent<PlayerMotor>();
         joint = GetComponent<ConfigurableJoint>();
+        animator = GetComponent<Animator>();
 
         SetJoinSettings(jointSpring);
 
     }
 
     void Update() {
-        float _movementX = Input.GetAxisRaw("Horizontal");
-        float _movementZ = Input.GetAxisRaw("Vertical");
+        float _movementX = Input.GetAxis("Horizontal");
+        float _movementZ = Input.GetAxis("Vertical");
 
         Vector3 _movementHorizontal = transform.right * _movementX;
         Vector3 _movementVertical = transform.forward * _movementZ;
 
         // final movement vector
         Vector3 _velocity = (_movementHorizontal + _movementVertical).normalized * speed;
+
+
+        //Animator movement
+        animator.SetFloat("ForwardVelocity", _movementZ);
 
         //Apply movement
         motor.Move(_velocity);
@@ -79,7 +86,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void SetJoinSettings(float _jointSpring) {
-        joint.yDrive = new JointDrive { 
+        joint.yDrive = new JointDrive {     
             mode = jointMode, 
             positionSpring = _jointSpring, 
             maximumForce = jointMaxForce
