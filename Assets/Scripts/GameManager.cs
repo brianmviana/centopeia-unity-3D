@@ -8,6 +8,9 @@ public class GameManager: MonoBehaviour {
 
     public MatchSettings matchSettings;
 
+    [SerializeField]
+    private GameObject sceneCamera;
+
     void Awake() {
         if (instance != null) {
             Debug.Log("more than one GameManager in scene");
@@ -15,6 +18,13 @@ public class GameManager: MonoBehaviour {
         else {
             instance = this;
         }
+    }
+
+    public void SetSceneCameraActive(bool isActive) {
+        if (sceneCamera != null) {
+            sceneCamera.gameObject.SetActive(isActive);
+        }
+
     }
 
     #region Player tracking;

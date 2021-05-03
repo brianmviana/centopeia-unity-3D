@@ -599,7 +599,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 3
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -695,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchSettings:
     respawnTime: 5
+  sceneCamera: {fileID: 720225293}
 --- !u!4 &1022151280
 Transform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking ;
 
+[RequireComponent(typeof(PlayerSetup))]
 public class Player : NetworkBehaviour {
 
     private bool _isDead = false;
@@ -25,6 +26,14 @@ public class Player : NetworkBehaviour {
     private Behaviour[] disableOnDeath;
     private bool[] wasEnebled;
 
+    [SerializeField]
+    private GameObject[] disableGameObjectOnDeath;
+
+    [SerializeField]
+    private GameObject spawnEffect;
+
+    [SerializeField]
+    private GameObject deathEffect;
 
     public void Setup() {
         wasEnebled = new bool[disableOnDeath.Length];
@@ -35,14 +44,14 @@ public class Player : NetworkBehaviour {
         SetDefaults();
     }
 
-    /*private void Update() {
+    private void Update() {
         if (!isLocalPlayer) {
             return;
         }
         if (Input.GetKeyDown(KeyCode.K)) {
             RpcTakeDamage(9999);
         }
-    }*/
+    }
 
     private void SetDefaults() {
         isDead = false;
@@ -50,11 +59,25 @@ public class Player : NetworkBehaviour {
         for (int i = 0; i < disableOnDeath.Length; i++) {
             disableOnDeath[i].enabled = wasEnebled[i];
         }
+        
+        for (int i = 0; i < disableGameObjectOnDeath.Length; i++) {
+            disableGameObjectOnDeath[i].SetActive(true);
+        }
 
         Collider _collider = GetComponent<Collider>();
         if (_collider != null) {
             _collider.enabled = true;
         }
+
+        // Switch cameras
+        if (isLocalPlayer) {
+            GameManager.instance.SetSceneCameraActive(false);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+        }
+
+        // Create Spawn effect
+        GameObject _spawnGraphics = Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        Destroy(_spawnGraphics, 3f);
 
     }
 
@@ -77,17 +100,34 @@ public class Player : NetworkBehaviour {
     private void Die() {
         isDead = true;
 
-        // DISABLE COMPONENSTS
+        // Disable Components
         for (int i = 0; i < disableOnDeath.Length; i++) {
             disableOnDeath[i].enabled = false;
         }
 
+        // Disable GameObjes
+        for (int i = 0; i < disableGameObjectOnDeath.Length; i++) {
+            disableGameObjectOnDeath[i].SetActive(false);
+        }
+
+
+        // Disable Collider
         Collider _collider = GetComponent<Collider>();
         if (_collider != null) {
             _collider.enabled = false;
         }
 
         Debug.Log(transform.name + " is Dead!");
+
+        // Spawn a death effect
+        GameObject _explosionGraphics =  Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(_explosionGraphics, 3f);
+
+        // Switch cameras
+        if (isLocalPlayer) {
+            GameManager.instance.SetSceneCameraActive(true);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
+        }
 
         // RESPAWN METHOD
         StartCoroutine(Respawn());
@@ -96,10 +136,10 @@ public class Player : NetworkBehaviour {
 
     IEnumerator Respawn() {
         yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTime);
-        SetDefaults();
         Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = _spawnPoint.position;
         transform.rotation = _spawnPoint.rotation;
+        SetDefaults();
 
         Debug.Log(transform.name + " respawned!");
     }

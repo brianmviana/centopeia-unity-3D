@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour {
             joint.targetPosition = new Vector3(0f, 0, 0f);
         }
 
-
         float _movementX = Input.GetAxis("Horizontal");
         float _movementZ = Input.GetAxis("Vertical");
 

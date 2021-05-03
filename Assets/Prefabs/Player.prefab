@@ -240,10 +240,10 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -2
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 1271
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -403,6 +403,7 @@ MonoBehaviour:
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 7969605229378704709}
   playerUIPrefab: {fileID: 6353160827916271434, guid: 6839bae8cf1598349a50786332a6e009, type: 3}
+  playerUIInstance: {fileID: 0}
 --- !u!114 &7969605230339362992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +456,7 @@ MonoBehaviour:
   cam: {fileID: 7969605229724541593}
   mask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 1719
 --- !u!114 &3940351927795951306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +473,10 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 7969605230339362995}
   - {fileID: 1906622249616058093}
+  disableGameObjectOnDeath:
+  - {fileID: 7969605229378704709}
+  spawnEffect: {fileID: 5611248541795978384, guid: 9499cb7318c0c0d49871377336c2fd39, type: 3}
+  deathEffect: {fileID: 100010, guid: 28a898baf2b9eff46a40f474982da347, type: 3}
 --- !u!114 &5066778430597015800
 MonoBehaviour:
   m_ObjectHideFlags: 0

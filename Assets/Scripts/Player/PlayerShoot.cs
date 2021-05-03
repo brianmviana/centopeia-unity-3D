@@ -67,7 +67,7 @@ public class PlayerShoot: NetworkBehaviour {
     // Here we can spawn in cool effects
     [ClientRpc]
     void RpcDoHitEffect(Vector3 _pos, Vector3 _normal) {
-        GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
+        GameObject _hitEffect = Instantiate(weaponManager.GetCurrentGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
         Destroy(_hitEffect, 2f);
     }
 
