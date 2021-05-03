@@ -35,23 +35,45 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     private GameObject deathEffect;
 
-    public void Setup() {
-        wasEnebled = new bool[disableOnDeath.Length];
-        for (int i = 0; i < wasEnebled.Length; i++) {
-            wasEnebled[i] = disableOnDeath[i].enabled;
+    private bool isfirstSetup;
+
+
+    public void SetupPlayer() {
+
+        if (isLocalPlayer) {
+            // Switch cameras
+            GameManager.instance.SetSceneCameraActive(true);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
         }
 
+        CmdBroadCastNewPlayerSetup();
+    }
+    
+    [Command]
+    private void CmdBroadCastNewPlayerSetup() {
+        RpcPlayerSetupOnAllClients();
+    }
+
+    [ClientRpc]
+    private void RpcPlayerSetupOnAllClients() {
+        if (isfirstSetup) {
+            wasEnebled = new bool[disableOnDeath.Length];
+            for (int i = 0; i < wasEnebled.Length; i++) {
+                wasEnebled[i] = disableOnDeath[i].enabled;
+            }
+            isfirstSetup = false;
+        }
         SetDefaults();
     }
 
-    private void Update() {
+/*    private void Update() {
         if (!isLocalPlayer) {
             return;
         }
         if (Input.GetKeyDown(KeyCode.K)) {
             RpcTakeDamage(9999);
         }
-    }
+    }*/
 
     private void SetDefaults() {
         isDead = false;
@@ -67,12 +89,6 @@ public class Player : NetworkBehaviour {
         Collider _collider = GetComponent<Collider>();
         if (_collider != null) {
             _collider.enabled = true;
-        }
-
-        // Switch cameras
-        if (isLocalPlayer) {
-            GameManager.instance.SetSceneCameraActive(false);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
         }
 
         // Create Spawn effect
@@ -110,7 +126,6 @@ public class Player : NetworkBehaviour {
             disableGameObjectOnDeath[i].SetActive(false);
         }
 
-
         // Disable Collider
         Collider _collider = GetComponent<Collider>();
         if (_collider != null) {
@@ -123,23 +138,22 @@ public class Player : NetworkBehaviour {
         GameObject _explosionGraphics =  Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(_explosionGraphics, 3f);
 
-        // Switch cameras
-        if (isLocalPlayer) {
-            GameManager.instance.SetSceneCameraActive(true);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
-        }
-
         // RESPAWN METHOD
         StartCoroutine(Respawn());
 
     }
 
     IEnumerator Respawn() {
+
         yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTime);
+
         Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = _spawnPoint.position;
         transform.rotation = _spawnPoint.rotation;
-        SetDefaults();
+
+        yield return new WaitForSeconds(0.1f);
+
+        SetupPlayer();
 
         Debug.Log(transform.name + " respawned!");
     }
