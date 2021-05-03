@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
     <Compile Include="Assets\AssetsThirdParty\CrossPlatformInput\Scripts\TiltInput.cs" />
     <Compile Include="Assets\Scripts\MatchSettings.cs" />
+    <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Utility\WaypointProgressTracker.cs" />
     <Compile Include="Assets\Utility\DragRigidbody.cs" />
     <Compile Include="Assets\AssetsThirdParty\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
     <Compile Include="Assets\Utility\ObjectResetter.cs" />
     <Compile Include="Assets\Utility\AutoMobileShaderSwitch.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponGraphics.cs" />
     <Compile Include="Assets\Utility\AutoMoveAndRotate.cs" />
     <Compile Include="Assets\Utility\FOVKick.cs" />
     <Compile Include="Assets\Scripts\OldScritps\Target.cs" />
@@ -109,8 +111,7 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Utility\FPSCounter.cs" />
     <Compile Include="Assets\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\Scripts\Weapon\WeaponGraphics.cs" />
-    <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerUI.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsThirdParty\Prototyping\Shaders\WorldCoordDiffuse.shader" />

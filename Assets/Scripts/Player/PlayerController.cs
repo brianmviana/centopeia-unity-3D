@@ -15,6 +15,18 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float thrusterForce = 1000f;
 
+    [SerializeField]
+    private float thrusterFuelBurnSpeed = 1f;
+
+    [SerializeField]
+    private float thrusterFuelRegenSpeed = 0.3f;
+
+    [SerializeField]
+    private float thrusterFuelAmount = 1f;
+
+    [SerializeField]
+    private LayerMask enviromentMask;
+
     [Header("Spring sttings: ")]
     [SerializeField]
     private float jointSpring = 20f;
@@ -36,6 +48,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+        // Setting targe position for spring
+        // This makes the physics act right when it comes to applying gravity when flying over objects
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out _hit, 100f, enviromentMask)) {
+            joint.targetPosition = new Vector3(0f, -(_hit.point.y), 0f);
+        }
+        else {
+            joint.targetPosition = new Vector3(0f, 0, 0f);
+        }
+
+
         float _movementX = Input.GetAxis("Horizontal");
         float _movementZ = Input.GetAxis("Vertical");
 
@@ -52,7 +75,6 @@ public class PlayerController : MonoBehaviour {
         //Apply movement
         motor.Move(_velocity);
 
-
         //Calculate rotation as a 3D vector
         float _rotationY = Input.GetAxisRaw("Mouse X");
         Vector3 _rotation = new Vector3(0f, _rotationY, 0f) * mouseSensitivy;
@@ -68,19 +90,29 @@ public class PlayerController : MonoBehaviour {
         motor.RotationCamera(_cameraRotationX);
 
         //Calculate the thruster force;
-        Vector3 _thusterForce = Vector3.zero;
+        Vector3 _thrusterForce = Vector3.zero;
 
-        if (Input.GetButton("Jump")) {
-            _thusterForce = Vector3.up * thrusterForce;
-            SetJoinSettings(0f);
+        if (Input.GetButton("Jump") && thrusterFuelAmount > 0f) {
+            thrusterFuelAmount -= thrusterFuelBurnSpeed * Time.deltaTime;
+            if (thrusterFuelAmount > 0.01f) {
+                _thrusterForce = Vector3.up * thrusterForce;
+                SetJoinSettings(0f);
+            }
         }
         else {
+            thrusterFuelAmount += thrusterFuelRegenSpeed * Time.deltaTime;
             SetJoinSettings(jointSpring);
         }
 
-        // Apply the thruster force
-        motor.ApplyThruster(_thusterForce);
+        thrusterFuelAmount = Mathf.Clamp(thrusterFuelAmount, 0f, 1f);
 
+        // Apply the thruster force
+        motor.ApplyThruster(_thrusterForce);
+
+    }
+
+    public float GetThrusterFuelAmount() {
+        return thrusterFuelAmount;
     }
 
     private void SetJoinSettings(float _jointSpring) {
