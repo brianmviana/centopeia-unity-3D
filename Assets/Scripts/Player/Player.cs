@@ -35,15 +35,15 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     private GameObject deathEffect;
 
-    private bool isfirstSetup;
+    private bool isfirstSetup = true;
 
 
     public void SetupPlayer() {
 
         if (isLocalPlayer) {
             // Switch cameras
-            GameManager.instance.SetSceneCameraActive(true);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
+            GameManager.instance.SetSceneCameraActive(false);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
         }
 
         CmdBroadCastNewPlayerSetup();
@@ -66,18 +66,19 @@ public class Player : NetworkBehaviour {
         SetDefaults();
     }
 
-/*    private void Update() {
+    private void Update() {
         if (!isLocalPlayer) {
             return;
         }
         if (Input.GetKeyDown(KeyCode.K)) {
             RpcTakeDamage(9999);
         }
-    }*/
+    }
 
     private void SetDefaults() {
         isDead = false;
         currentHealth = maxHealth;
+
         for (int i = 0; i < disableOnDeath.Length; i++) {
             disableOnDeath[i].enabled = wasEnebled[i];
         }
@@ -94,7 +95,6 @@ public class Player : NetworkBehaviour {
         // Create Spawn effect
         GameObject _spawnGraphics = Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(_spawnGraphics, 3f);
-
     }
 
     [ClientRpc]
@@ -151,7 +151,7 @@ public class Player : NetworkBehaviour {
         transform.position = _spawnPoint.position;
         transform.rotation = _spawnPoint.rotation;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         SetupPlayer();
 

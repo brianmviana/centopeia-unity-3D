@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
+        if (PauseMenu.IsOn) {
+            return;
+        }
+
         // Setting targe position for spring
         // This makes the physics act right when it comes to applying gravity when flying over objects
         RaycastHit _hit;

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Utility\DragRigidbody.cs" />
     <Compile Include="Assets\AssetsThirdParty\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
     <Compile Include="Assets\ParticleSystems\Scripts\FireLight.cs" />
+    <Compile Include="Assets\Scripts\Network\HostGame.cs" />
     <Compile Include="Assets\Scripts\OldScritps\Gun.cs" />
     <Compile Include="Assets\Utility\CurveControlledBob.cs" />
     <Compile Include="Assets\Utility\FollowTarget.cs" />
@@ -112,7 +113,9 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Utility\FPSCounter.cs" />
     <Compile Include="Assets\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\Scripts\Network\HostGame.cs" />
+    <Compile Include="Assets\Scripts\Network\JoinGame.cs" />
+    <Compile Include="Assets\Scripts\Network\RoomListItem.cs" />
+    <Compile Include="Assets\Scripts\Player\PauseMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsThirdParty\Prototyping\Shaders\WorldCoordDiffuse.shader" />

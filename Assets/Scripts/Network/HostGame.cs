@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.Networking;
 
 public class HostGame : MonoBehaviour {
@@ -17,15 +18,18 @@ public class HostGame : MonoBehaviour {
         }
     }
 
-    public void SetRoomName(string _name){
-        roomName = _name;
+    public void SetRoomName(TMP_InputField _name){
+        Debug.Log(_name.text);
+        roomName = _name.text;
     }
 
     public void CreateRoom() {
         if (roomName != "" && roomName != null) {
-            Debug.Log("Creating Room: " + roomName + "with room for " + roomSize + " players");
+            Debug.Log("Creating Room: " + roomName + " with room for " + roomSize + " players");
             networkManager.matchMaker.CreateMatch(roomName, roomSize, true, "", "", "", 0, 0, networkManager.OnMatchCreate);
+
+
+
         }
     }
-
 }
