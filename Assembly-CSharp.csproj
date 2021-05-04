@@ -93,8 +93,9 @@
     <Compile Include="Assets\Scripts\OldScritps\Gun.cs" />
     <Compile Include="Assets\Utility\CurveControlledBob.cs" />
     <Compile Include="Assets\Utility\FollowTarget.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerWeapon.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <Compile Include="Assets\ParticleSystems\Scripts\ExtinguishableParticleSystem.cs" />
+    <Compile Include="Assets\AssetsThirdParty\Arena\Example\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
     <Compile Include="Assets\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
     <Compile Include="Assets\Utility\ObjectResetter.cs" />
     <Compile Include="Assets\Utility\AutoMobileShaderSwitch.cs" />
@@ -116,7 +117,6 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Utility\FPSCounter.cs" />
     <Compile Include="Assets\Utility\SimpleActivatorMenu.cs" />
-    <Compile Include="Assets\AssetsThirdParty\Arena\Example\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\AssetsThirdParty\Prototyping\Shaders\WorldCoordDiffuse.shader" />

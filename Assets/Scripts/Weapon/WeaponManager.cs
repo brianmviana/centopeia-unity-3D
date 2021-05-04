@@ -10,17 +10,18 @@ public class WeaponManager : NetworkBehaviour {
     private Transform weaponHolder;
 
     [SerializeField]
-    private PlayerWeapon primaryWeapon;
+    private Weapon primaryWeapon;
 
-    private PlayerWeapon currentWeapon;
+    private Weapon currentWeapon;
     private WeaponGraphics currentGraphics;
+    private AudioClip currentFireSound;
 
 
     private void Start() {
         EquipWeapon(primaryWeapon);
     }
 
-    void EquipWeapon(PlayerWeapon _weapon) {
+    void EquipWeapon(Weapon _weapon) {
         currentWeapon = _weapon;
         GameObject _weaponIns = Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
@@ -36,11 +37,15 @@ public class WeaponManager : NetworkBehaviour {
         }
     }
 
-    public PlayerWeapon GetCurrentWeapon() {
+    public Weapon GetCurrentWeapon() {
         return currentWeapon;
     }
 
     public WeaponGraphics GetCurrentGraphics() {
         return currentGraphics;
+    }
+
+    public AudioClip GetCurrentFireSound() {
+        return currentFireSound;
     }
 }

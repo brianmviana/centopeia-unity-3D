@@ -10,12 +10,14 @@ public class PlayerShoot: NetworkBehaviour {
     [SerializeField]
     private Camera cam;
 
-    private PlayerWeapon currentWeapon;
+    private Weapon currentWeapon;
     private WeaponManager weaponManager;
 
     [SerializeField]
-    private LayerMask mask;
+    private AudioSource _audioBox;
 
+    [SerializeField]
+    private LayerMask mask;
 
     private void Start() {
         if (cam == null) {
@@ -32,20 +34,34 @@ public class PlayerShoot: NetworkBehaviour {
         }
 
         currentWeapon = weaponManager.GetCurrentWeapon();
+        
+               
+        if (Input.GetButtonDown("Fire1")) {
+            Shoot();
+        }
+        else if (Input.GetButtonDown("Fire2")) {
+            currentWeapon.fireRate = 5f;
+            InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
+        }
+        else if (Input.GetButtonUp("Fire2")) {
+            CancelInvoke("Shoot");
+            currentWeapon.fireRate = 0f;
+        }
+        
 
-        if (currentWeapon.fireRate <= 0f) {
-            if (Input.GetButtonDown("Fire1")) {
-                Shoot();
-            }
-        }
-        else {
-            if (Input.GetButtonDown("Fire1")) {
-                InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
-            }
-            else if (Input.GetButtonUp("Fire1")) {
-                CancelInvoke("Shoot");
-            }
-        }
+        /*        if (currentWeapon.fireRate <= 0f) {
+                    if (Input.GetButtonDown("Fire1")) {
+                        Shoot();
+                    }
+                }
+                else {
+                    if (Input.GetButtonDown("Fire1")) {
+                        InvokeRepeating("Shoot", 0f, 1f / currentWeapon.fireRate);
+                    }
+                    else if (Input.GetButtonUp("Fire1")) {
+                        CancelInvoke("Shoot");
+                    }
+                }*/
     }
 
     // Is called on the server when a player shoots
@@ -58,6 +74,8 @@ public class PlayerShoot: NetworkBehaviour {
     [ClientRpc]
     void RpcDoShootEffect() {
         weaponManager.GetCurrentGraphics().muzzleFlash.Play();
+        _audioBox.pitch = Random.Range(0.5f, 1.1f);
+        _audioBox.Play();
     }
 
     // Is called on the server when we hit something
@@ -82,6 +100,7 @@ public class PlayerShoot: NetworkBehaviour {
         if (!isLocalPlayer) {
             return;
         }
+        
 
         // We are the shoot method on the server
         CmdOnShoot();

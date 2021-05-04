@@ -19,7 +19,6 @@ public class HostGame : MonoBehaviour {
     }
 
     public void SetRoomName(TMP_InputField _name){
-        Debug.Log(_name.text);
         roomName = _name.text;
     }
 
