@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour {
     private float thrusterForce = 1000f;
 
     [SerializeField]
-    private float thrusterFuelBurnSpeed = 1f;
+    private float thrusterFuelBurnSpeed = 0.1f;
 
     [SerializeField]
     private float thrusterFuelRegenSpeed = 0.3f;
+
+    [SerializeField]
+    private float thrusterFuelMax = 2f;
 
     [SerializeField]
     private float thrusterFuelAmount = 1f;
@@ -43,6 +46,8 @@ public class PlayerController : MonoBehaviour {
         joint = GetComponent<ConfigurableJoint>();
         animator = GetComponent<Animator>();
 
+        thrusterFuelAmount = thrusterFuelMax;
+
         SetJoinSettings(jointSpring);
 
     }
@@ -50,8 +55,19 @@ public class PlayerController : MonoBehaviour {
     void Update() {
 
         if (PauseMenu.IsOn) {
+            if (Cursor.lockState != CursorLockMode.None) {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            motor.Move(Vector3.zero);
+            motor.Rotation(Vector3.zero);
+            motor.RotationCamera(0f);
+
             return;
         }
+        if (Cursor.lockState != CursorLockMode.Locked) {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
 
         // Setting targe position for spring
         // This makes the physics act right when it comes to applying gravity when flying over objects

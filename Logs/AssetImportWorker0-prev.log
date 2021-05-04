@@ -15,11 +15,11 @@ E:/workspace/Code/unity/monster-killer-unity-3D
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-61981
+50735
 Successfully changed project path to: E:/workspace/Code/unity/monster-killer-unity-3D
 E:/workspace/Code/unity/monster-killer-unity-3D
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 174.00 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 38.83 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.6f1 (338bb68529b2)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -35,69 +35,45 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56252
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56840
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003585 seconds.
+Registered in 0.001431 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 39.57 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 40.97 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.010 seconds
+- Completed reload, in  0.872 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.060152 seconds.
+Registered in 0.002118 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 40.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 40.85 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.050 seconds
+- Completed reload, in  0.819 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.56 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.74 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 125.9 MB.
-System memory in use after: 123.1 MB.
+Unloading 2667 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 128.3 MB.
+System memory in use after: 125.5 MB.
 
-Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 3063.
-Total: 3.255900 ms (FindLiveObjects: 0.297100 ms CreateObjectMapping: 0.157400 ms MarkObjects: 1.653600 ms  DeleteObjects: 1.146700 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Scenes/MainLevel/ReflectionProbe-0.exr
-  artifactKey: Guid(81670c2985c495148b24086bcefb7aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainLevel/ReflectionProbe-0.exr using Guid(81670c2985c495148b24086bcefb7aa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb3a7c0f0bfc45648f12b6a3d7d384cd') in 0.148427 seconds
-  Import took 0.152073 seconds .
+Unloading 50 unused Assets to reduce memory usage. Loaded Objects now: 3079.
+Total: 3.561900 ms (FindLiveObjects: 0.320300 ms CreateObjectMapping: 0.188300 ms MarkObjects: 1.893200 ms  DeleteObjects: 1.159100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000604 seconds.
-  path: Assets/Scenes/MainLevel/LightingData.asset
-  artifactKey: Guid(1f8246e67b9b7c6468d017683827b55c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainLevel/LightingData.asset using Guid(1f8246e67b9b7c6468d017683827b55c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f060f56629246b78d6bc8a118acf643') in 0.038596 seconds
-  Import took 0.042083 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000260 seconds.
-  path: Assets/Scenes/MainLevel
-  artifactKey: Guid(f5bc4f48dba4f4c459b58d4d854cd68b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainLevel using Guid(f5bc4f48dba4f4c459b58d4d854cd68b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f55b928d43138958ba6f1d4f1f46b908') in 0.006366 seconds
-  Import took 0.009998 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000257 seconds.
-  path: Assets/Scenes/Lobby.unity
-  artifactKey: Guid(c0a9136f4ecc2d644aab495e49d7b472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lobby.unity using Guid(c0a9136f4ecc2d644aab495e49d7b472) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb437c23093229e118537518cac39a17') in 0.007174 seconds
-  Import took 0.011413 seconds .
+  path: Assets/AssetsThirdParty/Arena
+  artifactKey: Guid(4c41f35d14869084f8e7d9d08eb8b384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AssetsThirdParty/Arena using Guid(4c41f35d14869084f8e7d9d08eb8b384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '390e4b4103f443bcce68b88c56581cc5') in 0.009852 seconds
+  Import took 0.021326 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

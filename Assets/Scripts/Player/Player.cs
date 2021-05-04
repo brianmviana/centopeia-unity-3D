@@ -66,14 +66,14 @@ public class Player : NetworkBehaviour {
         SetDefaults();
     }
 
-    private void Update() {
+/*    private void Update() {
         if (!isLocalPlayer) {
             return;
         }
         if (Input.GetKeyDown(KeyCode.K)) {
             RpcTakeDamage(9999);
         }
-    }
+    }*/
 
     private void SetDefaults() {
         isDead = false;
